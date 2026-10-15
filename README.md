@@ -173,6 +173,23 @@ Do not commit credentials. Create local environment files from the examples/plac
 
 `fdp/profiles.yml` reads Snowflake account, user, and password from environment variables and uses role `DBT_ROLE`, warehouse `ZOMATO_WH`, and database `ZOMATO`. Configure a Snowflake role with only the permissions the workflow needs. Airflow also expects a connection named `snowflake_default`, supplied in compose through `AIRFLOW_CONN_SNOWFLAKE_DEFAULT`.
 
+## Prerequisites
+
+Before running the project, make sure you have:
+
+- **Python** installed with the packages required by the AI applications.
+- **Docker and Docker Compose** for running Airflow and the Streamlit applications together.
+- **dbt with the Snowflake adapter** for building the analytics models.
+- **A configured Snowflake environment**, including the required database, warehouse, schemas, raw tables, stage, and permissions.
+- **Ollama** installed and running locally, with the configured chat and embedding models available.
+
+### Configuration and security
+
+- Configure credentials and connection settings using environment variables and local `.env` files.
+- Never commit passwords, API keys, or other secrets to Git.
+- Rotate any credentials that may have been exposed previously.
+- Review the configuration before exposing the development services outside a trusted environment.
+
 ## Running locally
 
 ### Run dbt
